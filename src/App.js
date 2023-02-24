@@ -12,10 +12,14 @@ import FoodList from './components/FoodList';
 function App() {
 
   const [foodList, setFoodList] = useState(foodsJSON);
+  
 
   return (
     <div className="App">
-      <SearchBar/>
+      {/* <SearchBar
+        handleSearchChange={handleSearchChange}
+        setFoodFiltered={filteredFood}
+      /> */}
       <FoodList/>
 
       {/* <h1>Food List 🥦</h1>

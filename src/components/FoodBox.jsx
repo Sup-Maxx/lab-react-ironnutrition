@@ -26,6 +26,13 @@ function FoodBox(props){
 
 export default FoodBox
 
+{/* <div>
+        <h6>{props.food.name}</h6>
+        <h6>{props.food.calories}</h6>
+        <img src={props.food.image}/>
+        <h6>{props.food.servings}</h6>
+        </div> */}
+
 {/* <Col>
       <Card
         title={props.food.name}
@@ -41,9 +48,3 @@ export default FoodBox
       </Card>
 </Col> */}
 
-{/* <div>
-        <h6>{props.food.name}</h6>
-        <h6>{props.food.calories}</h6>
-        <img src={props.food.image}/>
-        <h6>{props.food.servings}</h6>
-        </div> */}
