@@ -1,5 +1,6 @@
 import { useState } from "react"
 import foodsJSON from "../foods.json"
+import FoodBox from "./FoodBox"
 
 
 function FoodList(){
@@ -10,6 +11,16 @@ function FoodList(){
     return (
         <div>
             <h3>Food list 🥦</h3>
+
+            <FoodBox food={ {
+                name: "Orange",
+                calories: 85,
+                image: "https://i.imgur.com/abKGOcv.jpg",
+                servings: 1
+}}          /> 
+
+
+
             {foodList.map((foodIndv) => (
                 
                 <div>
