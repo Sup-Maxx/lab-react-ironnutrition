@@ -12,23 +12,19 @@ function FoodList(){
         <div>
             <h3>Food list 🥦</h3>
 
-            <FoodBox food={ {
-                name: "Orange",
-                calories: 85,
-                image: "https://i.imgur.com/abKGOcv.jpg",
-                servings: 1
-}}          /> 
-
-
+            <div className="menu">
 
             {foodList.map((foodIndv) => (
                 
-                <div>
-                    <p>{foodIndv.name}</p>
-                    <img src={foodIndv.image} style={{width:"250px"}}/>
-                </div>
-
+                <FoodBox key={foodIndv.name}
+                    food={{
+                        name: foodIndv.name,
+                        calories: foodIndv.calories,
+                        image: foodIndv.image,
+                        servings: foodIndv.servings
+}}              />
             ))}
+            </div>
         </div>
     )
 }
