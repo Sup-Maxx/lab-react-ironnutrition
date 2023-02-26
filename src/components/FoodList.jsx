@@ -1,8 +1,8 @@
 import { useState } from "react"
 import foodsJSON from "../foods.json"
 import FoodBox from "./FoodBox"
+import FormFoodInput from "./FormFoodInput"
 import SearchBar from "./Searchbar"
-
 
 function FoodList(){
     
@@ -17,6 +17,11 @@ function FoodList(){
         setFoodFiltered(filteredFood)
     }
 
+    function newFood(newFoodItem){
+        let freshFoodList = [...foodList, newFoodItem]
+        setFoodList(freshFoodList)
+    }
+
     return (
         <div>
 
@@ -25,7 +30,9 @@ function FoodList(){
                 setFoodFiltered={filteredFood}
             />
 
-            <h3>Food list 🥦</h3>
+            <FormFoodInput onSubmit={newFood}/>
+
+            <h1>Food list 🥦</h1>
 
             <div className="menu">
 

@@ -16,22 +16,7 @@ function App() {
 
   return (
     <div className="App">
-      {/* <SearchBar
-        handleSearchChange={handleSearchChange}
-        setFoodFiltered={filteredFood}
-      /> */}
       <FoodList/>
-
-      {/* <h1>Food List 🥦</h1>
-
-      {foodList.map((foodItem) => (
-        <div>
-          <p>{foodItem.name}</p>
-          <img src={foodItem.image} style={{width:"250px"}}  />
-
-        </div>
-      ))} */}
-
     </div>
   );
 }

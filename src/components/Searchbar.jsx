@@ -3,7 +3,7 @@ function SearchBar(props){
     const {handleSearchChange, setFoodFiltered} = props
 
     return(
-        <div>
+        <div className="searchBar">
             <h1>Search 🔍</h1>
             <input
                 type="search"
