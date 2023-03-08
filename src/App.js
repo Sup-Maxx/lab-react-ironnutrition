@@ -5,7 +5,6 @@ import foodsJSON from "./foods.json"
 
 
 import MenuList from './components/MenuList';
-/* import FoodList from './components/FoodList'; */
 import SearchBar from './components/Searchbar';
 import FoodList from './components/FoodList';
 

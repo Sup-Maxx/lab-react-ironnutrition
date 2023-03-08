@@ -7,15 +7,34 @@ import SearchBar from "./Searchbar"
 function FoodList(){
     
     const [foodList, setFoodList] = useState(foodsJSON)
-    const [foodFiltered, setFoodFiltered] = useState("")
+    const [display, setDisplay] = useState(foodsJSON)
+    const [showForm, setShowForm] = useState(false)
 
-    let filteredFood = foodList.filter((food) => {
-        return food.name.toLowerCase().includes(foodFiltered)
-    })
-
-    function handleSearchChange(searchText){
-        setFoodFiltered(filteredFood)
+    function addFood(foodToAdd){
+        const newList = [foodToAdd, ...foodList]
+        const newDisplay = [foodToAdd, ...display]
+        setFoodList(newList)
+        setDisplay(newDisplay)
     }
+
+    /* let filteredFood = foodList.filter((food) => {
+        return food.name.toLowerCase().includes(foodFiltered)
+    })*/
+
+    function filterDisplay(foodName){
+        const filteredFoods = foodList.filter((food) => {
+            food.name.toLowerCase().includes(foodName.toLowerCase)
+        })
+        setDisplay(filteredFoods)
+    }
+
+    function deleteFood(foodName) {
+        const filteredFoods = foodList.filter(food => food.name.toLowerCase() !== foodName.toLowerCase())
+        const filterDisplay = foodList.filter(food => food.name.toLowerCase() !== foodName.toLowerCase())
+        setFoodList(filteredFoods)
+        setDisplay(filterDisplay)
+    }
+
 
     function newFood(newFoodItem){
         let freshFoodList = [...foodList, newFoodItem]
@@ -25,12 +44,15 @@ function FoodList(){
     return (
         <div>
 
-            <SearchBar
-                handleSearchChange={handleSearchChange}
-                setFoodFiltered={filteredFood}
-            />
+            <SearchBar filterDisplay={filterDisplay}/>
 
-            <FormFoodInput onSubmit={newFood}/>
+            <button onClick={() => setShowForm(!showForm)}>
+            
+            {showForm ? "Hide Form" : "Show Form"}
+            
+            </button>
+
+            {showForm && <FormFoodInput addFood={addFood}/>}
 
             <h1>Food list 🥦</h1>
 

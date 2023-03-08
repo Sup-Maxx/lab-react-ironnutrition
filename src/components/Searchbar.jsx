@@ -1,17 +1,24 @@
-function SearchBar(props){
+import { Divider } from "antd"
+import { useState } from "react"
 
-    const {handleSearchChange, setFoodFiltered} = props
+function SearchBar({filterDisplay}){
+
+    const [query, setQuery] = useState("")
 
     return(
         <div className="searchBar">
-            <h1>Search 🔍</h1>
+        <Divider></Divider>
+            <label>
+                <h1>Search 🔍</h1>
+            </label>
+
             <input
-                type="search"
+                value={query}
+                type="text"
                 placeholder="Search"
                 onChange={(event) => {
-                    const searchText = event.target.value.toLowerCase()
-                    handleSearchChange(searchText)
-                    setFoodFiltered(searchText)
+                    setQuery(event.target.value)
+                    filterDisplay(event.target.value)                  
                 }}
             />
         </div>
